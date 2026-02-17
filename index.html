@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF Diamond Top-Up</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    color:white;
+    text-align:center;
+}
+
+/* Navbar */
+nav{
+    padding:18px;
+    font-size:22px;
+    font-weight:800;
+    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(10px);
+}
+
+/* Hero */
+.hero{
+    padding:60px 20px;
+}
+
+.logo{
+    width:140px;
+    height:140px;
+    margin:0 auto 20px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff512f,#dd2476);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+    box-shadow:0 0 25px rgba(255,0,100,0.6);
+}
+
+.hero h1{
+    font-size:30px;
+    font-weight:800;
+}
+
+.hero p{
+    margin-top:10px;
+    color:#ddd;
+    font-size:15px;
+}
+
+.download-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:15px 45px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+    background:linear-gradient(45deg,#00f260,#0575e6);
+    color:white;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(0,255,200,0.6);
+}
+
+.download-btn:hover{
+    transform:scale(1.08);
+}
+
+/* Features */
+.features{
+    margin:60px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* Screenshot Section */
+.screenshots{
+    padding:50px 20px;
+}
+
+.screenshots h2{
+    margin-bottom:20px;
+}
+
+.slider{
+    position:relative;
+    width:90%;
+    max-width:350px;
+    margin:auto;
+}
+
+.slide{
+    display:none;
+    width:100%;
+    border-radius:20px;
+}
+
+.slide.active{
+    display:block;
+}
+
+/* Buttons */
+.prev,.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.6);
+    color:white;
+    border:none;
+    padding:8px 12px;
+    font-size:18px;
+    cursor:pointer;
+    border-radius:50%;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+/* Dots */
+.dots{
+    text-align:center;
+    margin-top:10px;
+}
+
+.dot{
+    height:10px;
+    width:10px;
+    margin:5px;
+    background:#bbb;
+    border-radius:50%;
+    display:inline-block;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:#00f260;
+}
+
+/* Footer */
+footer{
+    padding:20px;
+    margin-top:40px;
+    background:rgba(0,0,0,0.3);
+    font-size:14px;
+    color:#bbb;
+}
+</style>
+</head>
+
+<body>
+
+<nav>Easy Top-Up</nav>
+
+<section class="hero">
+<div>
+  <img src="logo.png" class="logo">
+  </div>
+<h1>Download Easy Top-Up App</h1>
+<p>Fast • Secure • Trusted Recharge Platform</p>
+
+<a href="EasyTopUp.apk" class="download-btn">
+Download APK
+</a>
+</section>
+
+<section>
+<div>
+    <img src="bannar1.png" class="slide active">
+    <img src="bannar2.png" class="slide">
+    <img src="bannar3.jpg" class="slide">
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+<div class="card">
+<h3>⚡ Instant Top-Up</h3>
+<p>Fast diamond delivery system.</p>
+</div>
+
+<div class="card">
+<h3>🔒 Secure Payment</h3>
+<p>Safe and protected transactions.</p>
+</div>
+
+<div class="card">
+<h3>💳 Multiple Methods</h3>
+<p>bKash, Nagad & Card support.</p>
+</div>
+
+<div class="card">
+<h3>📞 24/7 Support</h3>
+<p>Always ready to help you.</p>
+</div>
+</section>
+
+<section class="screenshots">
+<h2>App Screenshots</h2>
+
+
+</section>
+
+<footer>
+© 2026 FF Diamond Top-Up | Not affiliated with Garena
+</footer>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let dots = document.querySelectorAll(".dot");
+let index = 0;
+
+function showSlide(i){
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    slides[i].classList.add("active");
+    dots[i].classList.add("active");
+}
+
+document.querySelector(".next").onclick = function(){
+    index = (index + 1) % slides.length;
+    showSlide(index);
+}
+
+document.querySelector(".prev").onclick = function(){
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+}
+
+dots.forEach((dot,i)=>{
+    dot.onclick = function(){
+        index = i;
+        showSlide(index);
+    }
+});
+
+setInterval(()=>{
+    index = (index + 1) % slides.length;
+    showSlide(index);
+},3000);
+</script>
+
+</body>
+</html>
